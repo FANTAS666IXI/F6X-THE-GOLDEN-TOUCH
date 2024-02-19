@@ -8,6 +8,7 @@ Library: C:\Users\FANTAS666X\Desktop\PROGRAMING F6X\UNITY\F6X-THE-GOLDEN-TOUCH\F
 --float-precision=Standard
 --target-framework=NetFramework
 --assembly-defines=UnityEngine;
+--assembly-defines=Assembly-CSharp;
 --assembly-defines=Unity.2D.IK.Runtime;
 --assembly-defines=Unity.Burst;
 --assembly-defines=Unity.VisualScripting.Core;
