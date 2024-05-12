@@ -13,9 +13,10 @@
 ---
 
 - **Stack :**
-  - **F6X THE GOLDEN TOUCH** : `0.2.0`
+  - **F6X The Golden Touch** : `0.3.0`
   - **Android** : `8.0`
   - **Unity** : `2022.3.20f1`
+  - **Console Log System** : `1.3.0`
 
 ---
 

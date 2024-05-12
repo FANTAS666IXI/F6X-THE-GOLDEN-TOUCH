@@ -1,46 +1,26 @@
-using System.Diagnostics;
 using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
-    public Color classColor;
+    [Header("Console Log Settings")]
     public bool consoleLog;
-    public bool consoleLogSystem;
+    public Color logColor;
+    private ConsoleLogSystemController consoleLogSystemController;
 
     private void Awake()
     {
-        ConsoleLog("Starting Game...");
+        InitializeComponents();
+        ConsoleLog("Starting Game...", true);
     }
 
-    private void Update()
+    private void InitializeComponents()
     {
-        ExitGame();
+        consoleLogSystemController = GameObject.FindGameObjectWithTag("ConsoleLogSystem").GetComponent<ConsoleLogSystemController>();
     }
 
-    private void ExitGame()
-    {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            ConsoleLog("Closing Game...");
-            Application.Quit();
-        }
-    }
-
-    private void ConsoleLog(string message)
+    private void ConsoleLog(string message = "Test", bool showFrame = false, int infoLevel = 0)
     {
         if (consoleLog)
-            ConsoleLogSystem($"{message}", classColor);
-    }
-
-    public void ConsoleLogSystem(string message, Color classColor, int frame = 1)
-    {
-        if (consoleLogSystem)
-        {
-            StackTrace stackTrace = new StackTrace();
-            StackFrame stackFrame = stackTrace.GetFrame(frame);
-            string callingScript = stackFrame.GetMethod().DeclaringType.Name;
-            string stringClassColor = ("#" + ColorUtility.ToHtmlStringRGBA(classColor));
-            UnityEngine.Debug.Log($"<b>[<color={stringClassColor}>{callingScript}</color>]: {message}</b>");
-        }
+            consoleLogSystemController.ConsoleLogSystem(message, logColor, showFrame, infoLevel);
     }
 }
