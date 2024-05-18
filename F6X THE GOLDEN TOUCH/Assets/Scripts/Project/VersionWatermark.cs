@@ -25,6 +25,6 @@ public class VersionWatermark : MonoBehaviour
     private void SetVersionWatermark()
     {
         if (show)
-            waterwarkText.text = "v" + Application.version;
+            waterwarkText.text = Application.version;
     }
 }
